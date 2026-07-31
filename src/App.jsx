@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
@@ -7,20 +9,24 @@ import Services from "./pages/Services/Services";
 import Process from "./pages/Process/Process";
 import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
-
-import "./styles/Global.css";
+import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 
 function App() {
   return (
     <>
       <Header />
 
-      <Home />
-      <About />
-      <Services />
-      <Process />
-      <FAQ />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+          <Route
+      path="/services/:serviceId"
+      element={<ServiceDetails />} />
+        <Route path="/process" element={<Process />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
 
       <Footer />
     </>

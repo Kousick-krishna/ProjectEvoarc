@@ -1,50 +1,28 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 import logo from "../../assets/images/logo/logo.png";
 
+const navItems = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/services", label: "Services" },
+  { path: "/process", label: "Process" },
+  { path: "/faq", label: "FAQ" },
+  { path: "/contact", label: "Contact" },
+];
+
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-
-      const sections = [
-        "home",
-        "about",
-        "services",
-        "process",
-        "faq",
-        "contact",
-      ];
-
-      let current = "home";
-
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-
-        if (element) {
-          const top = element.offsetTop - 120;
-          const height = element.offsetHeight;
-
-          if (
-            window.scrollY >= top &&
-            window.scrollY < top + height
-          ) {
-            current = section;
-          }
-        }
-      });
-
-      setActiveSection(current);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -61,78 +39,34 @@ function Header() {
     setMenuOpen(false);
   };
 
-  const handleNavClick = (id) => {
-    const section = document.getElementById(id);
-
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80,
-        behavior: "smooth",
-      });
-
-      setActiveSection(id);
-    }
-
-    closeMenu();
-  };
-
   return (
     <>
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
-        <div className="container">
+        <div className="header-container">
 
-          <img
-            src={logo}
-            alt="EVOARC Logo"
-            className="logo"
-          />
+          {/* Logo */}
+
+          <NavLink to="/" onClick={closeMenu}>
+            <img
+              src={logo}
+              alt="EVOARC Logo"
+              className="logo"
+            />
+          </NavLink>
 
           {/* Desktop Menu */}
 
           <nav className="desktop-menu">
-
-            <a
-              onClick={() => handleNavClick("home")}
-              className={activeSection === "home" ? "active" : ""}
-            >
-              Home
-            </a>
-
-            <a
-              onClick={() => handleNavClick("about")}
-              className={activeSection === "about" ? "active" : ""}
-            >
-              About
-            </a>
-
-            <a
-              onClick={() => handleNavClick("services")}
-              className={activeSection === "services" ? "active" : ""}
-            >
-              Services
-            </a>
-
-            <a
-              onClick={() => handleNavClick("process")}
-              className={activeSection === "process" ? "active" : ""}
-            >
-              Process
-            </a>
-
-            <a
-              onClick={() => handleNavClick("faq")}
-              className={activeSection === "faq" ? "active" : ""}
-            >
-              FAQ
-            </a>
-
-            <a
-              onClick={() => handleNavClick("contact")}
-              className={activeSection === "contact" ? "active" : ""}
-            >
-              Contact
-            </a>
-
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={closeMenu}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {item.label}
+              </NavLink>
+            ))}
           </nav>
 
           {/* Hamburger */}
@@ -152,7 +86,7 @@ function Header() {
       <div
         className={`overlay ${menuOpen ? "show-overlay" : ""}`}
         onClick={closeMenu}
-      ></div>
+      />
 
       {/* Mobile Menu */}
 
@@ -165,47 +99,16 @@ function Header() {
           ✕
         </button>
 
-        <a
-          onClick={() => handleNavClick("home")}
-          className={activeSection === "home" ? "active" : ""}
-        >
-          Home
-        </a>
-
-        <a
-          onClick={() => handleNavClick("about")}
-          className={activeSection === "about" ? "active" : ""}
-        >
-          About
-        </a>
-
-        <a
-          onClick={() => handleNavClick("services")}
-          className={activeSection === "services" ? "active" : ""}
-        >
-          Services
-        </a>
-
-        <a
-          onClick={() => handleNavClick("process")}
-          className={activeSection === "process" ? "active" : ""}
-        >
-          Process
-        </a>
-
-        <a
-          onClick={() => handleNavClick("faq")}
-          className={activeSection === "faq" ? "active" : ""}
-        >
-          FAQ
-        </a>
-
-        <a
-          onClick={() => handleNavClick("contact")}
-          className={activeSection === "contact" ? "active" : ""}
-        >
-          Contact
-        </a>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {item.label}
+          </NavLink>
+        ))}
 
       </div>
     </>
