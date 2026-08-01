@@ -2,6 +2,17 @@
 // ABOUT EVOARC
 // ===========================================
 
+import {
+  FaUsers,
+  FaProjectDiagram,
+  FaMicrochip,
+  FaAward,
+  FaClock,
+  FaShieldAlt,
+  FaCogs,
+  FaLightbulb,
+} from "react-icons/fa";
+
 export const about = {
   title: "Engineering Innovation with Precision",
 
@@ -19,52 +30,68 @@ export const about = {
 export const whyChoose = [
   {
     id: 1,
+    icon: FaUsers,
+    short: "Team",
     title: "Experienced Electronics Engineering Team",
     description:
-      "Highly skilled engineers with extensive expertise in electronics product design and development."
+      "Our multidisciplinary engineering team possesses extensive expertise in PCB design, embedded systems, hardware development, and product engineering, delivering reliable and innovative electronic solutions.",
   },
   {
     id: 2,
+    icon: FaProjectDiagram,
+    short: "Development",
     title: "End-to-End Product Development",
     description:
-      "Complete engineering support from concept, design, prototyping, testing, and manufacturing."
+      "From requirement gathering and schematic design to PCB layout, prototyping, testing, and manufacturing support, we manage the complete product lifecycle.",
   },
   {
     id: 3,
+    icon: FaMicrochip,
+    short: "PCB",
     title: "High-Speed & Complex PCB Expertise",
     description:
-      "Specialized experience in multilayer, high-speed, RF, mixed-signal, and complex PCB layouts."
+      "We specialize in multilayer, RF, HDI, mixed-signal, and high-speed PCB designs while ensuring excellent signal integrity and manufacturability.",
   },
   {
     id: 4,
+    icon: FaCogs,
+    short: "EDA",
     title: "Advanced EDA Tools",
     description:
-      "Designs developed using Cadence Allegro and Altium Designer for maximum accuracy and efficiency."
+      "Using Cadence Allegro, Altium Designer, and OrCAD, we deliver precise and production-ready PCB layouts that meet industry standards.",
   },
   {
     id: 5,
+    icon: FaAward,
+    short: "Quality",
     title: "Quality-Focused Engineering Process",
     description:
-      "Every project follows proven engineering practices to ensure quality, reliability, and compliance."
+      "Every design undergoes comprehensive reviews, simulations, verification, and validation to ensure reliability and performance.",
   },
   {
     id: 6,
+    icon: FaClock,
+    short: "Delivery",
     title: "On-Time Project Delivery",
     description:
-      "Efficient project management ensures timely delivery without compromising engineering standards."
+      "Efficient project planning and transparent communication enable us to consistently deliver projects within agreed timelines.",
   },
   {
     id: 7,
+    icon: FaShieldAlt,
+    short: "Security",
     title: "Confidential & Secure Development",
     description:
-      "Strict confidentiality practices protect client data, intellectual property, and product information."
+      "We safeguard your intellectual property through secure development practices and strict confidentiality agreements.",
   },
   {
     id: 8,
+    icon: FaLightbulb,
+    short: "Solutions",
     title: "Customized Engineering Solutions",
     description:
-      "Flexible engineering services designed specifically around each customer's unique requirements."
-  }
+      "Every project is tailored to the customer's technical requirements, industry standards, and business objectives.",
+  },
 ];
 
 // ===========================================
@@ -217,15 +244,10 @@ export const downloads = [
     file: "#"
   },
   {
-    id: 3,
-    title: "Portfolio",
-    type: "PDF",
-    file: "#"
-  },
-  {
     id: 4,
     title: "Company Profile",
     type: "PDF",
     file: "#"
   }
 ];
+
