@@ -645,21 +645,25 @@
     background:#f8fbff;
 }
 
-.downloads-grid{
-    max-width:1400px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+.downloads-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 280px));
+
+    justify-content: center;
+    gap: 30px;
 }
 
-.download-card{
-    background:#fff;
-    padding:35px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
-    transition:.35s;
+.download-card {
+    width: 100%;
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    transition: .35s;
 }
 
 .download-card:hover{
@@ -838,4 +842,276 @@
 .cta-buttons a{
     width:100%;
 }
+}
+
+/* ======================================
+   MOBILE CAROUSELS
+====================================== */
+
+.why-mobile,
+.industries-mobile,
+.testimonial-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .why-desktop,
+    .industries-desktop,
+    .testimonial-desktop {
+        display: none;
+    }
+
+    .why-mobile,
+    .industries-mobile,
+    .testimonial-mobile {
+        display: block;
+    }
+
+    .why-mobile .swiper,
+    .industries-mobile .swiper,
+    .testimonial-mobile .swiper {
+        padding-bottom: 45px;
+    }
+
+    .why-mobile .swiper-slide,
+    .industries-mobile .swiper-slide,
+    .testimonial-mobile .swiper-slide {
+        height: auto;
+    }
+
+    .why-mobile .why-card,
+    .industries-mobile .industry-card,
+    .testimonial-mobile .testimonial-card {
+        height: 100%;
+        margin: 5px;
+    }
+
+    .swiper-pagination-bullet {
+        background: #0056d6;
+        opacity: 0.35;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        width: 24px;
+        border-radius: 20px;
+    }
+}
+
+/* ==========================================
+   WHY CHOOSE NEW DESIGN
+========================================== */
+
+.why-selector {
+
+    display: flex;
+    gap: 14px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding-bottom: 10px;
+
+    margin: 40px auto;
+
+    scrollbar-width: none;
+
+    max-width: 1200px;
+}
+
+.why-selector::-webkit-scrollbar {
+    display: none;
+}
+
+/* -------------------------- */
+
+.why-chip {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border: none;
+
+    background: white;
+
+    border-radius: 40px;
+
+    padding: 14px 22px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: .3s;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.05);
+
+    color: #444;
+
+    font-size: 15px;
+
+    flex-shrink: 0;
+}
+
+.why-chip svg {
+
+    font-size: 20px;
+}
+
+.why-chip:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,.12);
+}
+
+.why-chip.active {
+
+    background: #0056d6;
+
+    color: white;
+}
+
+/* -------------------------- */
+
+.why-display {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    background: white;
+
+    padding: 50px;
+
+    border-radius: 24px;
+
+    box-shadow: 0 20px 45px rgba(0,0,0,.08);
+
+    animation: fadeWhy .35s ease;
+}
+
+/* -------------------------- */
+
+.why-display-icon {
+
+    width: 90px;
+    height: 90px;
+
+    margin: auto auto 30px;
+
+    background: #eef5ff;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.why-display-icon svg {
+
+    font-size: 42px;
+
+    color: #0056d6;
+}
+
+/* -------------------------- */
+
+.why-display h3 {
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+
+    color: #222;
+}
+
+.why-display p {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #666;
+
+    max-width: 720px;
+
+    margin: auto;
+}
+
+@keyframes fadeWhy {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+.why-selector{
+
+    margin:30px 0;
+}
+
+.why-display{
+
+    padding:35px 25px;
+}
+
+.why-display h3{
+
+    font-size:26px;
+}
+
+.why-display p{
+
+    font-size:15px;
+}
+
+.why-display-icon{
+
+    width:70px;
+    height:70px;
+}
+
+.why-display-icon svg{
+
+    font-size:34px;
+}
+
+}
+
+/* Desktop by default */
+
+.why-desktop{
+    display:block;
+}
+
+.why-mobile{
+    display:none;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .why-desktop{
+        display:none;
+    }
+
+    .why-mobile{
+        display:block;
+    }
+
 }

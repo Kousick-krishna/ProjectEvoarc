@@ -10,10 +10,18 @@ import {
 
 import heroImage from "../../assets/images/logo/logo.png";
 import aboutImage from "../../assets/images/logo/logo.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 import "./Home.css";
 
 function Home() {
+  const [selectedWhy, setSelectedWhy] = useState(whyChoose[0]);
+  const SelectedIcon = selectedWhy.icon;
   return (
     <main className="home">
 
@@ -125,53 +133,104 @@ function Home() {
 
       <section className="why-home">
 
-        <div className="section-heading">
+  <div className="section-heading">
+    <span className="section-tag">
+      WHY CHOOSE US
+    </span>
 
-          <span className="section-tag">
-            WHY CHOOSE US
-          </span>
+    <h2>
+      Why Choose EVOARC
+    </h2>
 
-          <h2>
-            Why Choose EVOARC
-          </h2>
+    <p>
+      Delivering innovation, quality, and engineering excellence through every project.
+    </p>
+  </div>
 
-          <p>
-            We combine engineering expertise,
-            innovation, and proven development
-            practices to deliver reliable electronic
-            products that exceed customer expectations.
-          </p>
+  {/* ===========================
+      DESKTOP VIEW
+  =========================== */}
 
-        </div>
+  <div className="why-desktop">
 
-        <div className="why-grid">
+    <div className="why-grid">
 
-          {whyChoose.map((item) => (
+      {whyChoose.map((item) => (
 
-            <div
-              className="why-card"
-              key={item.id}
-            >
+        <div
+          className="why-card"
+          key={item.id}
+        >
 
-              <div className="why-number">
-                {item.id}
-              </div>
+          <div className="why-number">
+            {item.id}
+          </div>
 
-              <h3>
-                {item.title}
-              </h3>
+          <h3>{item.title}</h3>
 
-              <p>
-                {item.description}
-              </p>
-
-            </div>
-
-          ))}
+          <p>{item.description}</p>
 
         </div>
 
-      </section>
+      ))}
+
+    </div>
+
+  </div>
+
+  {/* ===========================
+      MOBILE VIEW
+  =========================== */}
+
+  <div className="why-mobile">
+
+    <div className="why-selector">
+
+      {whyChoose.map((item) => {
+
+        const Icon = item.icon;
+
+        return (
+
+          <button
+            key={item.id}
+            className={`why-chip ${
+              selectedWhy.id === item.id ? "active" : ""
+            }`}
+            onClick={() => setSelectedWhy(item)}
+          >
+
+            <Icon />
+
+            <span>{item.short}</span>
+
+          </button>
+
+        );
+
+      })}
+
+    </div>
+
+    <div className="why-display">
+
+      <div className="why-display-icon">
+        <SelectedIcon />
+      </div>
+
+      <h3>
+        {selectedWhy.title}
+      </h3>
+
+      <p>
+        {selectedWhy.description}
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
             {/* ===========================
             INDUSTRIES
@@ -198,95 +257,64 @@ function Home() {
 
         </div>
 
-        <div className="industries-grid">
+        <div className="industries-desktop">
 
-          {industries.map((industry) => (
+  <div className="industries-grid">
 
-            <div
-              className="industry-card"
-              key={industry.id}
-            >
+    {industries.map((industry) => (
 
-              <div className="industry-number">
-                {String(industry.id).padStart(2, "0")}
-              </div>
+      <div
+        className="industry-card"
+        key={industry.id}
+      >
 
-              <h3>
-                {industry.title}
-              </h3>
+        <div className="industry-number">
+          {String(industry.id).padStart(2, "0")}
+        </div>
 
-            </div>
+        <h3>{industry.title}</h3>
 
-          ))}
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
+
+<div className="industries-mobile">
+
+  <Swiper
+    modules={[Pagination]}
+    slidesPerView={1.15}
+    spaceBetween={20}
+    pagination={{ clickable: true }}
+  >
+
+    {industries.map((industry) => (
+
+      <SwiperSlide key={industry.id}>
+
+        <div className="industry-card">
+
+          <div className="industry-number">
+            {String(industry.id).padStart(2, "0")}
+          </div>
+
+          <h3>{industry.title}</h3>
 
         </div>
+
+      </SwiperSlide>
+
+    ))}
+
+  </Swiper>
+
+</div>
 
       </section>
 
-            {/* ===========================
-            DEVELOPMENT PROCESS
-      =========================== */}
-
-      <section className="process-home">
-
-        <div className="section-heading">
-
-          <span className="section-tag">
-            DEVELOPMENT PROCESS
-          </span>
-
-          <h2>
-            Our Engineering Development Flow
-          </h2>
-
-          <p>
-            Every successful electronic product begins with a structured
-            engineering process. Our workflow ensures quality, efficiency,
-            and seamless execution from concept to manufacturing.
-          </p>
-
-        </div>
-
-        <div className="process-timeline">
-
-          {developmentProcess.map((step, index) => (
-
-            <div
-              className="process-item"
-              key={step.id}
-            >
-
-              <div className="process-left">
-
-                <div className="process-circle">
-                  {step.id}
-                </div>
-
-                {index !== developmentProcess.length - 1 && (
-                  <div className="process-line"></div>
-                )}
-
-              </div>
-
-              <div className="process-content">
-
-                <h3>
-                  {step.title}
-                </h3>
-
-                <p>
-                  {step.description}
-                </p>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
 
             {/* ===========================
             TESTIMONIALS
@@ -312,40 +340,88 @@ function Home() {
 
         </div>
 
-        <div className="testimonial-grid">
+        <div className="testimonial-desktop">
 
-          {testimonials.map((testimonial) => (
+  <div className="testimonial-grid">
 
-            <div
-              className="testimonial-card"
-              key={testimonial.id}
-            >
+    {testimonials.map((testimonial) => (
 
-              <div className="testimonial-stars">
+      <div
+        className="testimonial-card"
+        key={testimonial.id}
+      >
 
-                ★★★★★
+        <div className="testimonial-stars">
+          ★★★★★
+        </div>
 
-              </div>
+        <p className="testimonial-feedback">
+          "{testimonial.feedback}"
+        </p>
 
-              <p className="testimonial-feedback">
+        <div className="testimonial-user">
 
-                "{testimonial.feedback}"
+          <h4>{testimonial.name}</h4>
 
-              </p>
-
-              <div className="testimonial-user">
-
-                <h4>{testimonial.name}</h4>
-
-                <span>{testimonial.company}</span>
-
-              </div>
-
-            </div>
-
-          ))}
+          <span>{testimonial.company}</span>
 
         </div>
+
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
+
+<div className="testimonial-mobile">
+
+  <Swiper
+  modules={[Pagination, Autoplay]}
+  slidesPerView={1.05}
+  spaceBetween={20}
+  pagination={{ clickable: true }}
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  }}
+  speed={800}
+  loop={true}
+>
+
+    {testimonials.map((testimonial) => (
+
+      <SwiperSlide key={testimonial.id}>
+
+        <div className="testimonial-card">
+
+          <div className="testimonial-stars">
+            ★★★★★
+          </div>
+
+          <p className="testimonial-feedback">
+            "{testimonial.feedback}"
+          </p>
+
+          <div className="testimonial-user">
+
+            <h4>{testimonial.name}</h4>
+
+            <span>{testimonial.company}</span>
+
+          </div>
+
+        </div>
+
+      </SwiperSlide>
+
+    ))}
+
+  </Swiper>
+
+</div>
 
       </section>
 
