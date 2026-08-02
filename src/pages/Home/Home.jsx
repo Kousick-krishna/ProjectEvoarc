@@ -8,7 +8,7 @@ import {
   downloads
 } from "../../data/homeData";
 
-import heroImage from "../../assets/images/logo/logo.png";
+import heroImage from "../../assets/images/logo/hero.jpeg";
 import aboutImage from "../../assets/images/logo/logo.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
@@ -31,60 +31,53 @@ function Home() {
 
       <section className="hero">
 
-        <div className="hero-overlay">
+    <img
+        src={heroImage}
+        alt="Hero Background"
+        className="hero-bg"
+    />
 
-          <div className="hero-content">
+    <div className="hero-overlay">
 
-            <span className="hero-tag">
-              ENGINEERING EXCELLENCE
-            </span>
+        <span className="hero-tag">
+            ENGINEERING EXCELLENCE
+        </span>
 
-            <h1>
-              Engineering the
-              <span> Future of Electronics</span>
-            </h1>
+        <h1>
+            Engineering the
+            <span> Future of Electronics</span>
+        </h1>
 
-            <p>
-              Delivering innovative PCB Design,
-              Embedded Systems, Hardware Development,
-              and End-to-End Product Engineering
-              solutions with precision, quality,
-              and reliability.
-            </p>
+        <p>
+            Delivering innovative PCB Design,
+            Embedded Systems,
+            Hardware Development,
+            and End-to-End Product Engineering
+            solutions with precision,
+            quality and reliability.
+        </p>
 
-            <div className="hero-buttons">
+        <div className="hero-buttons">
 
-              <Link
+            <Link
                 to="/contact"
                 className="primary-btn"
-              >
+            >
                 Get Started
-              </Link>
+            </Link>
 
-              <Link
+            <Link
                 to="/services"
                 className="secondary-btn"
-              >
+            >
                 Explore Services
-              </Link>
-
-            </div>
-
-          </div>
-
-          <div className="hero-image">
-
-            <img
-              src={heroImage}
-              alt="EVOARC Engineering"
-            />
-
-          </div>
+            </Link>
 
         </div>
 
-      </section>
+    </div>
 
+</section>
       {/* ===========================
             ABOUT SECTION
       =========================== */}
