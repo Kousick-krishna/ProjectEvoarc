@@ -1,5 +1,6 @@
 import "./Contact.css";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
 
@@ -19,32 +20,87 @@ function handleSubmit(e) {
 
   let isValid = true;
 
+  // Name
   if (name.trim() === "") {
     setNameError("Name is required");
     isValid = false;
+  } else if (!/^[A-Za-z ]+$/.test(name)) {
+    setNameError("Name should contain only letters");
+    isValid = false;
   }
 
+  // Phone
   if (phoneNumber.trim() === "") {
     setPhoneNumberError("Phone Number is required");
     isValid = false;
+  } else if (!/^[0-9]{10}$/.test(phoneNumber)) {
+    setPhoneNumberError("Enter a valid phone number");
+    isValid = false;
   }
 
+  // Email
   if (email.trim() === "") {
     setEmailError("Email is required");
     isValid = false;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setEmailError("Enter a valid email");
+    isValid = false;
   }
 
+  // Subject
   if (subject.trim() === "") {
     setsubjectError("Subject is required");
     isValid = false;
-  }
-
-  if (yourMessage.trim() === "") {
-    setyourMessageError("Message is required");
+  } else if (subject.trim().length < 5) {
+    setsubjectError("Subject should contain at least 5 characters");
     isValid = false;
   }
 
-  console.log(isValid);
+  // Message
+  if (yourMessage.trim() === "") {
+    setyourMessageError("Message is required");
+    isValid = false;
+  } else if (yourMessage.trim().length < 20) {
+    setyourMessageError("Message should contain at least 20 characters");
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  const templateParams = {
+    name: name,
+    phone: phoneNumber,
+    email: email,
+    subject: subject,
+    message: yourMessage,
+  };
+
+  emailjs
+    .send(
+      "service_dma5uni",
+      "template_tjppjs5",
+      templateParams,
+      "IeXkdERcJsevCKogY"
+    )
+    .then(() => {
+      alert("Message sent successfully!");
+
+      setName("");
+      setPhoneNumber("");
+      setEmail("");
+      setSubject("");
+      setYourMessage("");
+
+      setNameError("");
+      setPhoneNumberError("");
+      setEmailError("");
+      setsubjectError("");
+      setyourMessageError("");
+    })
+    .catch((error) => {
+  console.log("EmailJS Error:", error);
+  alert(error.text || error.message || JSON.stringify(error));
+});
 }
 
   return (
