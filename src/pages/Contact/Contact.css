@@ -112,8 +112,10 @@
 @media (max-width: 480px) {
 
     .contact {
-        padding: 60px 15px;
+        padding: 110px 15px 60px;
     }
+
+}
 
     .contact-title h2 {
         font-size: 26px;
@@ -155,7 +157,5 @@
     .error {
         font-size: 13px;
     }
-
-}
 
 }
