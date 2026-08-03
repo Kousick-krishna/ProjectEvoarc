@@ -1,5 +1,6 @@
 import "./Footer.css";
 import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const quickLinks = [
   { href: "/", label: "Home" },
