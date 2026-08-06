@@ -1,6 +1,7 @@
 import "./Footer.css";
-import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { services as footerServices } from "../../data/services";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -9,15 +10,6 @@ const quickLinks = [
   { href: "/process", label: "Process" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
-];
-
-const services = [
-  "PCB Design",
-  "Hardware Development",
-  "Product Development",
-  "Engineering Analysis",
-  "Embedded & IoT",
-  "Technical Consultancy",
 ];
 
 export default function Footer() {
@@ -33,7 +25,7 @@ export default function Footer() {
     <ul>
       {quickLinks.map((link) => (
         <li key={link.href}>
-          <a href={link.href}>{link.label}</a>
+          <Link to={link.href}>{link.label}</Link>
         </li>
       ))}
     </ul>
@@ -42,8 +34,10 @@ export default function Footer() {
   <div className="footer-col">
     <h4>Services</h4>
     <ul>
-      {services.map((service) => (
-        <li key={service}>{service}</li>
+      {footerServices.map((service) => (
+        <li key={service.id}>
+          <Link to={`/services/${service.id}`}>{service.title}</Link>
+        </li>
       ))}
     </ul>
   </div>
