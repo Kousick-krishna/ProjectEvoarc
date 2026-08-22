@@ -1,6 +1,18 @@
 // ===========================================
 // ABOUT EVOARC
 // ===========================================
+import industrialAutomation from "../assets/images/industries/industrial-automation.jpg";
+import automotive from "../assets/images/industries/automotive.jpg";
+import aerospaceDefence from "../assets/images/industries/aerospace-defence.jpg";
+import medicalElectronics from "../assets/images/industries/medical-electronics.jpg";
+import consumerElectronics from "../assets/images/industries/consumer-electronics.jpg";
+import telecommunications from "../assets/images/industries/telecommunications.jpg";
+import semiconductor from "../assets/images/industries/semiconductor.jpg";
+import iotSmartDevices from "../assets/images/industries/iot-smart-devices.jpg";
+import renewableEnergy from "../assets/images/industries/renewable-energy.jpg";
+
+import companyBrochure from "../assets/documents/company-brochure.pdf";
+import capabilityStatement from "../assets/documents/capability-statement.pdf";
 
 import {
   FaUsers,
@@ -101,39 +113,48 @@ export const whyChoose = [
 export const industries = [
   {
     id: 1,
-    title: "Industrial Automation"
+    title: "Industrial Automation",
+    image: industrialAutomation
   },
   {
     id: 2,
-    title: "Automotive"
+    title: "Automotive",
+    image: automotive
   },
   {
     id: 3,
-    title: "Aerospace & Defence"
+    title: "Aerospace & Defence",
+    image: aerospaceDefence
   },
   {
     id: 4,
-    title: "Medical Electronics"
+    title: "Medical Electronics",
+    image: medicalElectronics
   },
   {
     id: 5,
-    title: "Consumer Electronics"
+    title: "Consumer Electronics",
+    image: consumerElectronics
   },
   {
     id: 6,
-    title: "Telecommunications"
+    title: "Telecommunications",
+    image: telecommunications
   },
   {
     id: 7,
-    title: "Semiconductor"
+    title: "Semiconductor",
+    image: semiconductor
   },
   {
     id: 8,
-    title: "IoT & Smart Devices"
+    title: "IoT & Smart Devices",
+    image: iotSmartDevices
   },
   {
     id: 9,
-    title: "Renewable Energy"
+    title: "Renewable Energy",
+    image: renewableEnergy
   }
 ];
 
@@ -235,19 +256,13 @@ export const downloads = [
     id: 1,
     title: "Company Brochure",
     type: "PDF",
-    file: "#"
+    file: companyBrochure
   },
   {
     id: 2,
     title: "Capability Statement",
     type: "PDF",
-    file: "#"
-  },
-  {
-    id: 4,
-    title: "Company Profile",
-    type: "PDF",
-    file: "#"
+    file: capabilityStatement
   }
 ];
 

@@ -261,9 +261,12 @@ function Home() {
         key={industry.id}
       >
 
-        <div className="industry-number">
-          {String(industry.id).padStart(2, "0")}
-        </div>
+        <div className="industry-image">
+  <img
+    src={industry.image}
+    alt={industry.title}
+  />
+</div>
 
         <h3>{industry.title}</h3>
 
@@ -290,9 +293,12 @@ function Home() {
 
         <div className="industry-card">
 
-          <div className="industry-number">
-            {String(industry.id).padStart(2, "0")}
-          </div>
+          <div className="industry-image">
+  <img
+    src={industry.image}
+    alt={industry.title}
+  />
+</div>
 
           <h3>{industry.title}</h3>
 
