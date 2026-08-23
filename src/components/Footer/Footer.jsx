@@ -96,11 +96,15 @@ export default function Footer() {
 </div>
 
   <div className="footer-policy">
-  <a href="/privacy-policy">Privacy Policy</a>
+  <Link to="/privacy-policy">
+  Privacy Policy
+</Link>
 
   <span>|</span>
 
-  <a href="/terms">Terms & Conditions</a>
+  <Link to="/terms-and-conditions">
+  Terms & Conditions
+</Link>
   </div>
 
   <div className="footer-bottom">

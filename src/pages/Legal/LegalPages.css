@@ -1,0 +1,146 @@
+.legal-page {
+    min-height: 100vh;
+    background: #f8fbff;
+}
+
+
+/* ==========================================
+   LEGAL HERO
+========================================== */
+
+.legal-hero {
+    padding: 110px 8% 80px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(240, 248, 255, .95),
+            rgba(232, 245, 255, .97)
+        ),
+        url("../../assets/images/hero/pcb-pattern.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-hero h1 {
+    font-size: 52px;
+    color: #1d1d1d;
+    margin: 15px 0 20px;
+}
+
+.legal-hero p {
+    max-width: 750px;
+    margin: auto;
+
+    color: #666;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.legal-content {
+    max-width: 1000px;
+
+    margin: 70px auto;
+
+    padding: 50px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .06);
+}
+
+.legal-updated {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 40px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.legal-content h2 {
+    font-size: 25px;
+
+    color: #1d1d1d;
+
+    margin-top: 35px;
+
+    margin-bottom: 15px;
+}
+
+.legal-content p {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+}
+
+.legal-content ul {
+    padding-left: 25px;
+
+    margin-bottom: 25px;
+}
+
+.legal-content li {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    margin-bottom: 8px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .legal-hero {
+        padding: 80px 20px 60px;
+    }
+
+    .legal-hero h1 {
+        font-size: 36px;
+    }
+
+    .legal-hero p {
+        font-size: 15px;
+    }
+
+    .legal-content {
+        margin: 40px 20px;
+
+        padding: 30px 25px;
+
+        border-radius: 15px;
+    }
+
+    .legal-content h2 {
+        font-size: 21px;
+    }
+
+    .legal-content p,
+    .legal-content li {
+        font-size: 15px;
+    }
+
+}

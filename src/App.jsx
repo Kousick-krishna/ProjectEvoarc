@@ -11,6 +11,8 @@ import Process from "./pages/Process/Process";
 import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
+import TermsAndConditions from "./pages/Legal/TermsAndConditions";
 
 function App() {
   return (
@@ -28,6 +30,15 @@ function App() {
         <Route path="/process" element={<Process />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
+        <Route
+  path="/privacy-policy"
+  element={<PrivacyPolicy />}
+/>
+
+<Route
+  path="/terms-and-conditions"
+  element={<TermsAndConditions />}
+/>
       </Routes>
 
       <Footer />
