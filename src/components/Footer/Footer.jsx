@@ -49,22 +49,40 @@ export default function Footer() {
  <div className="contact-info">
 
   <div>
-    <p><strong>Address</strong></p>
-    <p>123 ABC Avenue</p>
-    <p>XYZ - 11111</p>
-    <p>India</p>
-  </div>
+  <p><strong>Address</strong></p>
+
+  <p className="address-text">
+    Evoarc Technologies LLP<br />
+    Door No : 5/7B, ST-1<br />
+    Karuppe Gdr. Street<br />
+    Velanthavalam Road<br />
+    KG Chavady<br />
+    Coimbatore<br />
+    Pin Code : 641105
+  </p>
+</div>
 
   <div>
 
-    <div className="contact-block">
-      <p><strong>Email</strong></p>
-      <p>info@evoarc.com</p>
-    </div>
+    <div className="contact-block"> 
+      <p><strong>Email</strong></p> 
 
-    <div className="contact-block">
-      <p><strong>Phone</strong></p>
-      <p>+91 98XXX XXXXX0</p>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=info@evoarc.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          info@evoarc.com
+        </a>
+      <br/>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=support@evoarc.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          support@evoarc.com
+        </a>
+
     </div>
 
   </div>
@@ -87,11 +105,17 @@ export default function Footer() {
 
   <div className="footer-col footer-social">
   <h4>Follow Us</h4>
-  <div className="footer-socials">
-    <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-      <FaLinkedin />
-    </a>
-  </div>
+    <div className="footer-socials">
+  <a
+    href="https://www.linkedin.com/company/evoarc-technologies/"
+    target="_blank"
+    rel="noreferrer"
+    className="linkedin-link"
+  >
+    <FaLinkedin />
+    <span>Evoarc Technologies</span>
+  </a>
+</div>
 </div>
 </div>
 

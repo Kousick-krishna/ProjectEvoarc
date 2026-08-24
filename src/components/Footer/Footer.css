@@ -35,6 +35,10 @@
 .footer-col:nth-child(3) {
   border-right: none;
 }
+.contact-block a {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
 
 /* Map */
 .footer-col:nth-child(4) {
@@ -97,26 +101,42 @@
   padding-left: 18px;
 }
 
-/* ===========================
-   Social Icons
-=========================== */
+
+/* ================= FOLLOW US ================= */
+
+.footer-social {
+    text-align: left;
+}
+
+.footer-social h4 {
+    margin-bottom: 15px;
+}
 
 .footer-socials {
-  display: flex;
-  gap: 18px;
-  margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.footer-socials a {
-  color: #ffffff;
-  font-size: 28px;
-  transition: 0.3s;
+.footer-socials .linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    white-space: nowrap;
 }
 
-.footer-socials a:hover {
-  color: #ffd166;
-  transform: translateY(-2px);
+.footer-socials .linkedin-link svg {
+    font-size: 26px;
+    flex-shrink: 0;
 }
+
+.footer-socials .linkedin-link:hover {
+    color: #6BE675;
+}
+
 
 /* ===========================
    Map
@@ -194,177 +214,256 @@
 
 }
 
-
 /* ================= MOBILE VIEW ================= */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-/* Quick Links */
-.footer-col:nth-child(1){
-    grid-column:1;
+    /* ================= FOOTER ================= */
+
+    .footer {
+        padding: 40px 20px 25px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* ================= MAIN GRID ================= */
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 25px;
+        row-gap: 35px;
+        width: 100%;
+    }
+
+    /* ================= QUICK LINKS ================= */
+
+    .footer-col:nth-child(1) {
+        grid-column: 1;
+    }
+
+    /* ================= SERVICES ================= */
+
+    .footer-col:nth-child(2) {
+        grid-column: 2;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .footer-col:nth-child(3) {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    /* Remove desktop borders */
+    .footer-col {
+        border: none;
+        padding: 0;
+        min-width: 0;
+    }
+
+    /* Headings */
+    .footer-col h4 {
+        font-size: 20px;
+        margin-bottom: 18px;
+        color: #fff;
+    }
+
+    /* Lists */
+    .footer-col ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-col li {
+        list-style: none;
+        margin-bottom: 8px;
+    }
+
+    .footer-col a,
+    .footer-col p,
+    .footer-col li {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+/* ================= CONTACT INFO ================= */
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    width: 100%;
 }
 
-/* Services */
-.footer-col:nth-child(2){
-    grid-column:2;
+.contact-info > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
 }
 
-/* Contact - full width */
-.footer-col:nth-child(3){
-    grid-column:1 / span 2;
+/* Contact text */
+.contact-info > div p {
+    margin: 0;
+    line-height: 1.4;
 }
 
-.footer{
-    padding:40px 20px 25px;
+/* Contact headings */
+.contact-info > div strong {
+    display: block;
+    margin-bottom: 8px;
 }
 
-.container{
-    width:100%;
-    padding:0;
+/* Address */
+.contact-info > div:first-child {
+    gap: 0 !important;
+    justify-content: flex-start !important;
+    text-align: left;
 }
 
-/* Main grid */
-.footer-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px 18px;
+.contact-info > div:first-child p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.35 !important;
 }
 
-/* Remove desktop borders */
-.footer-col{
-    border:none;
-    padding:0;
+/* Space below Address heading */
+.contact-info > div:first-child p:first-child {
+    margin-bottom: 8px !important;
 }
 
-/* Section headings */
-.footer-col h4{
-    font-size:22px;
-    margin-bottom:18px;
-    color:#fff;
+/* Email / Phone column */
+.contact-info > div:last-child {
+    justify-self: start;
+    text-align: left;
 }
 
-/* Lists */
-.footer-col ul{
-    margin:0;
-    padding:0;
+/* Email and Support */
+.contact-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.footer-col li{
-    list-style:none;
-    margin-bottom:4px;
+.contact-block a {
+    display: block;
+    width: auto;
+    white-space: nowrap;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
 }
 
-.footer-col a,
-.footer-col p,
-.footer-col li{
-    font-size:15px;
-    line-height:1;
-}
+    /* ================= MAP ================= */
 
-/* ================= CONTACT ================= */
+    .footer-map {
+        grid-column: 1 / -1 !important;
+        width: 100%;
+        margin-top: 0;
+        text-align: center;
+    }
 
-.contact-info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    width:100%;
-}
+    .footer-map h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
 
-.contact-info > div{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-}
+    .footer-map iframe {
+        display: block;
+        width: 100%;
+        height: 250px;
+        border: none;
+        border-radius: 12px;
+    }
 
-/* Default paragraph spacing */
-.contact-info > div p{
-    margin:0;
-    line-height:1.5;
-}
 
-/* Space below the heading only */
-.contact-info > div strong{
-    display:block;
-    margin-bottom:8px;
-}
+    /* ================= FOLLOW US ================= */
 
-/* Address lines */
-.contact-info > div:first-child p:not(:first-child){
-    margin-bottom:4px;
-}
+    .footer-social {
+        grid-column: 1 / -1 !important;
+        width: 100%;
+        text-align: center;
+    }
 
-/* Space before Phone section */
-.contact-info > div:last-child p:nth-child(3){
-    margin-top:10px;
-}
+    .footer-social h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
 
-/* ================= MAP ================= */
+    .footer-socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.footer-map{
-    grid-column:1 / span 2;
-    margin-top:10px;
-    text-align:center;
-}
+    .footer-socials .linkedin-link {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        width: auto !important;
+        white-space: nowrap !important;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px !important;
+    }
 
-.footer-map h4{
-    margin-bottom:18px;
-}
+    .footer-socials .linkedin-link span {
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
 
-.footer-map iframe{
-    width:100%;
-    height:250px;
-    border:none;
-    border-radius:12px;
-}
+    .footer-socials .linkedin-link svg {
+        width: 24px;
+        height: 24px;
+        font-size: 24px !important;
+        flex-shrink: 0;
+    }
 
-/* ================= FOLLOW US ================= */
 
-.footer-social{
-    grid-column:1 / span 2;
-    text-align:center;
-}
+    /* ================= POLICY ================= */
 
-.footer-social h4{
-    margin-bottom:15px;
-}
+    .footer-policy {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 10px;
+        padding-top: 20px;
+        width: 100%;
+    }
 
-.footer-socials{
-    justify-content:center;
-    gap:18px;
-}
+    .footer-policy span {
+        display: none;
+    }
 
-.footer-socials a{
-    font-size:30px;
-}
+    .footer-policy a {
+        font-size: 14px;
+    }
 
-/* ================= POLICY ================= */
 
-.footer-policy{
-    grid-column:1 / span 2;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    border-top:1px solid rgba(255,255,255,.2);
-    margin-top:25px;
-    padding-top:20px;
-}
+    /* ================= COPYRIGHT ================= */
 
-.footer-policy span{
-    display:none;
-}
+    .footer-bottom {
+        grid-column: 1 / -1;
+        text-align: center;
+        border-top: none;
+        padding-top: 5px;
+        width: 100%;
+    }
 
-/* ================= COPYRIGHT ================= */
+    .footer-bottom p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+    }
 
-.footer-bottom{
-    grid-column:1 / span 2;
-    text-align:center;
-    border-top:none;
-    padding-top:10px;
-}
-
-.footer-bottom p{
-    font-size:14px;
-    line-height:1.6;
-}
 }
