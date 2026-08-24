@@ -68,17 +68,9 @@ export default function Footer() {
       <p><strong>Email</strong></p> 
 
         <a
-  href="mailto:info@evoarc.com"
+  href="mailto:info@evoarctech.com"
 >
-  info@evoarc.com
-</a>
-
-<br />
-
-<a
-  href="mailto:support@evoarc.com"
->
-  support@evoarc.com
+  info@evoarctech.com
 </a>
 
     </div>

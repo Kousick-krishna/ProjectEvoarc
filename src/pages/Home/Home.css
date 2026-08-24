@@ -967,14 +967,15 @@
     flex-wrap:wrap;
 }
 
-.light-btn{
-    border:2px solid #fff;
-    color:#fff;
+.secondary-btn.light-btn {
+    background: #0056d6;
+    border: 2px solid #fff;
+    color: #fff !important;
 }
 
-.light-btn:hover{
-    background:#fff;
-    color:#0056d6;
+.secondary-btn.light-btn:hover {
+    background: #fff;
+    color: #0056d6 !important;
 }
 
 /* =====================================================
