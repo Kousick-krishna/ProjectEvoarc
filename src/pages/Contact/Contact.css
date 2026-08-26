@@ -1,161 +1,874 @@
+/* ================= CONTACT SECTION ================= */
+
 .contact {
     background: #f5f7fb;
-    padding: 100px 20px 80px;
+    padding: 110px 20px 80px;
     min-height: 100vh;
+    box-sizing: border-box;
 }
+
+
+/* ================= MAIN CONTAINER ================= */
 
 .contact-container {
     width: 100%;
-    max-width: 650px;
+    max-width: 1100px;
     margin: 0 auto;
-}
-.contact-title{
-    text-align:center;
-    margin-bottom:30px;
+
+    display: grid;
+    grid-template-columns: 42% 58%;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(25, 60, 100, 0.10);
 }
 
-.contact-title h2{
-    font-size:38px;
-    color:#1d3557;
-    margin-bottom:10px;
+
+/* ================= LEFT PANEL ================= */
+
+.contact-info-panel {
+    position: relative;
+    overflow: hidden;
+
+    padding: 55px 40px;
+
+    background: linear-gradient(
+        145deg,
+        #f8faff 0%,
+        #eef5ff 60%,
+        #dcecff 100%
+    );
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 700px;
+
+    box-sizing: border-box;
 }
 
-.contact-title p{
-    color:#666;
+
+/* Large decorative circle */
+
+.contact-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.02),
+        rgba(37, 99, 235, 0.22)
+    );
+
+    right: -260px;
+    bottom: -220px;
+
+    pointer-events: none;
 }
+
+
+/* ================= LOGO ================= */
+
+.contact-logo {
+    width: 190px;
+    height: auto;
+
+    object-fit: contain;
+
+    margin-bottom: 55px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================= LEFT HEADING ================= */
+
+.contact-info-panel h2 {
+    margin: 0;
+
+    font-size: 40px;
+    line-height: 1.15;
+
+    color: #123f73;
+
+    font-weight: 700;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.contact-info-panel h3 {
+    margin: 25px 0 15px;
+
+    font-size: 20px;
+
+    color: #123f73;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================= BLUE LINE ================= */
+
+.contact-line {
+    width: 30px;
+    height: 3px;
+
+    background: #1565d8;
+
+    margin-bottom: 20px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================= DESCRIPTION ================= */
+
+.contact-description {
+    max-width: 320px;
+
+    margin: 0;
+
+    color: #4b6380;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================= CONTACT DETAILS ================= */
+
+.contact-details {
+    margin-top: auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.contact-details a {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+    color: #123f73;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+
+.contact-details a:hover {
+    color: #1565d8;
+}
+
+
+
+/* ================================================= */
+/* ================= RIGHT FORM ==================== */
+/* ================================================= */
 
 .contact-form {
-    background: #fff;
-    padding: 35px;
-    border-radius: 12px;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    position: relative;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    padding: 45px 40px;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: hidden;
 }
 
-.form-group{
-    display:flex;
-    flex-direction:column;
-    margin-bottom:22px;
+
+/* ================= FORM DECORATION ================= */
+
+/* subtle blue dots in top-right */
+
+.contact-form::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 230px;
+    height: 210px;
+
+    background-image: radial-gradient(
+        rgba(37, 99, 235, 0.13) 1.5px,
+        transparent 1.5px
+    );
+
+    background-size: 18px 18px;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+
+    mask-image: linear-gradient(
+        to bottom left,
+        black,
+        transparent 80%
+    );
 }
-.form-group label{
-    font-size:15px;
-    font-weight:600;
-    margin-bottom:8px;
-    color:#333;
+
+
+/* subtle blue glow */
+
+.contact-form::after {
+    content: "";
+
+    position: absolute;
+
+    top: -140px;
+    right: -100px;
+
+    width: 300px;
+    height: 300px;
+
+    background: rgba(37, 99, 235, 0.045);
+
+    border-radius: 50%;
+
+    pointer-events: none;
 }
+
+
+/* Make form content stay above decoration */
+
+.contact-form > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 22px;
+}
+
+
+.form-group label {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    color: #17202a;
+}
+
+
+.required {
+    color: #e53935;
+
+    font-weight: 700;
+}
+
+
+/* ================= INPUT WRAPPER ================= */
+
+.input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* ================= INPUT ICON ================= */
+
+.input-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #7b8794;
+
+    font-size: 18px;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* ================= INPUTS ================= */
 
 .form-group input,
 .form-group textarea {
+
     width: 100%;
+
     box-sizing: border-box;
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+
+    border: 1px solid #d7dce2;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #263238;
+
+    outline: none;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
-.form-group textarea{
-    resize:vertical;
-    min-height:140px;
+
+.form-group input {
+    height: 48px;
+
+    padding: 12px 15px 12px 45px;
 }
+
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+
+    padding: 15px 15px 15px 45px;
+}
+
+
+/* ================= PLACEHOLDER ================= */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8a929b;
+}
+
+
+/* ================= FOCUS ================= */
 
 .form-group input:focus,
-.form-group textarea:focus{
-    border-color:#1565d8;
-    box-shadow:0 0 0 3px rgba(21,101,216,.15);
+.form-group textarea:focus {
+
+    border-color: #1565d8;
+
+    background: #fcfdff;
+
+    box-shadow:
+        0 0 0 3px rgba(21, 101, 216, 0.10);
 }
 
-.required{
-    color:#e53935;
-    font-weight:700;
+
+/* ================= TEXTAREA ICON ================= */
+
+.textarea-wrapper {
+    position: relative;
 }
-.error{
-    color:#e53935;
-    font-size:14px;
-    margin-top:6px;
+
+
+.textarea-icon {
+    top: 20px;
+
+    transform: none;
 }
+
+
+/* ================= ERROR ================= */
+
+.error {
+    color: #e53935;
+
+    font-size: 13px;
+
+    margin: 6px 0 0;
+}
+
+
+/* ================================================= */
+/* ================= ATTACHMENT ==================== */
+/* ================================================= */
+
+.attachment-group {
+    margin-bottom: 22px;
+}
+
+.attachment-group > label:first-child {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Custom upload box */
+.custom-file-upload {
+    width: 100%;
+    height: 52px;
+
+    box-sizing: border-box;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 9px;
+
+    background: #fafcff;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+/* Paperclip */
+.upload-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #eaf2ff;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+}
+
+/* Choose a file text */
+.upload-text {
+    color: #1565d8;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Hide the ugly browser file input */
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+/* Hover */
+.custom-file-upload:hover {
+    border-color: #1565d8;
+    background: #f5f9ff;
+}
+
+/* Small description */
+.attachment-hint {
+    margin: 7px 0 0;
+
+    font-size: 12px;
+
+    color: #7a7a7a;
+}
+
+
+/* ================================================= */
+/* ================= SUBMIT BUTTON ================= */
+/* ================================================= */
 
 .submit-btn {
-    width: 180px;
-    display: block;
-    margin: 30px auto 0;
-    padding: 14px;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 26px auto 0;
+
+    padding: 14px 20px;
+
     border: none;
-    border-radius: 8px;
+
+    border-radius: 9px;
+
     background: #1565d8;
-    color: white;
+
+    color: #ffffff;
+
     font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.submit-btn span {
+    font-size: 18px;
+}
+
+
+.submit-btn:hover {
+    background: #0b5ed7;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(21, 101, 216, 0.25);
+}
+
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ================================================= */
+/* ================= SUCCESS POPUP ================= */
+/* ================================================= */
+
+.success-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+
+.success-popup {
+    width: 90%;
+
+    max-width: 420px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+.success-popup h3 {
+    margin: 0 0 12px;
+
+    color: #0056d6;
+
+    font-size: 24px;
+}
+
+
+.success-popup p {
+    margin: 0 0 22px;
+
+    color: #333333;
+
+    font-size: 16px;
+}
+
+
+.success-popup button {
+    background: #0056d6;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 10px 28px;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
     cursor: pointer;
 }
 
-.submit-btn:hover{
-    background:#0d4eb0;
+
+.success-popup button:hover {
+    background: #0045ad;
 }
 
-.submit-btn:hover{
-    background:#0b5ed7;
+/* ================= RIGHT FORM DECORATION ================= */
+
+.contact-form {
+    position: relative;
+    overflow: hidden;
 }
 
-@media(max-width:768px){
+/* Soft blue circle */
+.contact-form::before {
+    content: "";
+    position: absolute;
 
-.contact{
-    padding:50px 15px;
+    width: 390px;
+    height: 390px;
+
+    top: -235px;
+    right: -125px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.13);
+
+    pointer-events: none;
+    z-index: 0;
 }
 
-.contact-form{
-    padding:25px;
+/* Dotted pattern */
+.contact-form::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 190px;
+
+    top: 0;
+    right: 0;
+
+    background-image: radial-gradient(
+        rgba(37, 99, 235, 0.30) 1.5px,
+        transparent 1.5px
+    );
+
+    background-size: 17px 17px;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    z-index: 0;
 }
 
-.contact-title h2{
-    font-size:30px;
+/* Keep form content above decoration */
+.contact-form > * {
+    position: relative;
+    z-index: 1;
 }
+
+
+/* ================================================= */
+/* ================= MOBILE ======================== */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+    .contact {
+        padding: 40px 15px 50px;
+    }
+
+
+    .contact-container {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        border-radius: 16px;
+    }
+
+
+    /* LEFT PANEL */
+
+    .contact-info-panel {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 35px 28px;
+    }
+
+
+    .contact-info-panel h2 {
+        font-size: 32px;
+    }
+
+
+    .contact-info-panel h3 {
+        font-size: 18px;
+
+        margin-top: 20px;
+    }
+
+
+    .contact-description {
+        max-width: 100%;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+
+    /* FORM */
+
+    .contact-form {
+        width: 100%;
+
+        padding: 30px 22px;
+    }
+
+
+    /* Hide decorative dots on mobile */
+
+    .contact-form::before {
+        opacity: 0.25;
+    }
+
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+
+    /* Attachment */
+
+    .attachment-box {
+        min-height: 85px;
+
+        padding: 10px;
+
+        gap: 10px;
+    }
+
+
+    .upload-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 23px;
+    }
+
+
+    .upload-content small {
+        font-size: 10px;
+    }
+
+
+    .browse-btn {
+        padding: 8px 10px;
+
+        font-size: 12px;
+    }
+
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+
+/* ================= SMALL MOBILE ================= */
 
 @media (max-width: 480px) {
 
     .contact {
-        padding: 110px 15px 60px;
+        padding: 25px 10px 40px;
     }
 
-}
 
-    .contact-title h2 {
-        font-size: 26px;
+    .contact-info-panel {
+        padding: 30px 22px;
     }
 
-    .contact-title p {
-        font-size: 14px;
+
+    .contact-info-panel h2 {
+        font-size: 29px;
     }
+
+
+    .contact-logo {
+        width: 145px;
+    }
+
 
     .contact-form {
-        padding: 20px;
-        border-radius: 10px;
+        padding: 25px 18px;
     }
 
-    .form-group {
-        margin-bottom: 16px;
+
+    .attachment-box {
+        align-items: flex-start;
     }
 
-    .form-group label {
-        font-size: 14px;
+
+    .upload-content span {
+        font-size: 12px;
     }
 
-    .form-group input,
-    .form-group textarea {
-        padding: 12px;
-        font-size: 14px;
+
+    .upload-content small {
+        font-size: 9px;
     }
 
-    .form-group textarea {
-        min-height: 120px;
-    }
 
-    .submit-btn {
-        width: 100%;
-        padding: 13px;
-        font-size: 15px;
+    .browse-btn {
+        display: none;
     }
-
-    .error {
-        font-size: 13px;
-    }
-
 }
