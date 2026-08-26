@@ -68,7 +68,7 @@ body {
 ========================================== */
 
 .logo {
-    height: 55px;
+    height: 70px;
     width: auto;
     max-width: 180px;
 
@@ -303,8 +303,8 @@ body {
     }
 
     .logo {
-        height: 42px;
-        max-width: 130px;
+        height: 60px;
+        max-width: auto;
     }
 
     .hamburger {
