@@ -73,7 +73,7 @@ function handleSubmit(e) {
 
   emailjs
   .sendForm(
-    "service_dma5uni",
+    "service_74anmzd",
     "template_tjppjs5",
     e.target,
     {
