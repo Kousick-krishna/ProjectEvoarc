@@ -16,6 +16,8 @@ function Contact() {
   const [yourMessage, setYourMessage] = useState("");
   const [yourmessageError, setyourMessageError] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileError, setFileError] = useState("");
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -69,40 +71,35 @@ function handleSubmit(e) {
 
   if (!isValid) return;
 
-  const templateParams = {
-    name: name,
-    phone: phoneNumber,
-    email: email,
-    subject: subject,
-    message: yourMessage,
-  };
-
   emailjs
-    .send(
-      "service_dma5uni",
-      "template_tjppjs5",
-      templateParams,
-      "IeXkdERcJsevCKogY"
-    )
-    .then(() => {
+  .sendForm(
+    "service_dma5uni",
+    "template_tjppjs5",
+    e.target,
+    {
+      publicKey: "IeXkdERcJsevCKogY"
+    }
+  )
+  .then(() => {
     setShowSuccess(true);
 
-      setName("");
-      setPhoneNumber("");
-      setEmail("");
-      setSubject("");
-      setYourMessage("");
+    setName("");
+    setPhoneNumber("");
+    setEmail("");
+    setSubject("");
+    setYourMessage("");
+    setSelectedFile(null);
 
-      setNameError("");
-      setPhoneNumberError("");
-      setEmailError("");
-      setsubjectError("");
-      setyourMessageError("");
-    })
-    .catch((error) => {
-  console.log("EmailJS Error:", error);
-  alert(error.text || error.message || JSON.stringify(error));
-});
+    setNameError("");
+    setPhoneNumberError("");
+    setEmailError("");
+    setsubjectError("");
+    setyourMessageError("");
+  })
+  .catch((error) => {
+    console.log("EmailJS Error:", error);
+    alert(error.text || error.message || JSON.stringify(error));
+  });
 }
 
 return (
@@ -125,7 +122,7 @@ return (
         </p>
       </div>
 
-      <form className="contact-form" onSubmit={handleSubmit}>
+      <form className="contact-form" onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="form-group">
           <label>
             Name <span className="required">*</span>
@@ -136,6 +133,7 @@ return (
 
             <input
               type="text"
+              name="name"
               placeholder="Enter your full name"
               value={name}
               onChange={(e) => {
@@ -165,6 +163,7 @@ return (
 
             <input
               type="tel"
+              name="phone"
               placeholder="Enter your phone number"
               value={phoneNumber}
               onChange={(e) => {
@@ -196,6 +195,7 @@ return (
 
             <input
               type="email"
+              name="email"
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => {
@@ -229,6 +229,7 @@ return (
 
             <input
               type="text"
+              name="subject"
               placeholder="Enter subject"
               value={subject}
               onChange={(e) => {
@@ -261,6 +262,7 @@ return (
             <span className="input-icon textarea-icon">✎</span>
 
             <textarea
+              name="message"
               rows="6"
               placeholder="Describe your project or requirement..."
               value={yourMessage}
@@ -288,16 +290,53 @@ return (
         <div className="form-group attachment-group">
           <label>Attachment</label>
 
-          <label className="custom-file-upload">
-            <span className="upload-icon">📎</span>
-            <span className="upload-text">Choose a file</span>
-            <input type="file" />
-          </label>
+           <label className="custom-file-upload">
+  <span className="upload-icon">📎</span>
+  <span className="upload-text">
+    {selectedFile ? selectedFile.name : "Choose a file"}
+  </span>
+
+  {selectedFile && (
+    <button
+      type="button"
+      className="remove-file"
+      onClick={() => {
+        setSelectedFile(null);
+      }}
+    >
+      ✕
+    </button>
+  )}
+
+  <input
+    type="file"
+    name="attachment"
+    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+    onChange={(e) => {
+      const file = e.target.files[0];
+
+      if (file && file.size > 50 * 1024) {
+        setFileError("File size must be 50 KB or less.");
+        e.target.value = "";
+        setSelectedFile(null);
+        return;
+      }
+
+      setSelectedFile(file || null);
+    }}
+  />
+</label>
 
           <p className="attachment-hint">
-            Optional • PDF, DOC, DOCX, JPG or PNG
-          </p>
-        </div>
+  Optional • PDF only • Maximum size: 50 KB
+  <span className="info-icon">
+    ⓘ
+    <span className="info-tooltip">
+      Need to share supporting documents larger than 50 KB? Please provide them via email after submitting the form.
+    </span>
+  </span>
+</p>
+       </div>
 
         <button type="submit" className="submit-btn">
           Send Message
@@ -319,6 +358,18 @@ return (
           </div>
         </div>
       )}
+
+      {fileError && (
+  <div className="success-overlay">
+    <div className="success-popup">
+      <h3>File Size Limit</h3>
+      <p>{fileError}</p>
+      <button onClick={() => setFileError("")}>
+        OK
+      </button>
+    </div>
+  </div>
+)}
     </div>
   </section>
 );
